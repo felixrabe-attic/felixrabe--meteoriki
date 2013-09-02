@@ -1,0 +1,47 @@
+body {
+  background-color: #ededed;
+  color: #383838;
+}
+
+body > header {
+  & > h1, & > p {
+    color: #ccc;
+    display: inline;
+  }
+
+  & > p {
+    margin-left: 4px;
+  }
+
+  &:hover {
+    background-color: #333;
+    width: auto;
+  }
+
+  transition: background-color linear 0.08s;
+}
+
+article {
+  background-color: #fff;
+  margin: 8px 0;
+  padding: 5px 12px;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  article {
+    border-radius: 8px;
+    margin: 8px auto;
+    width: 900px;
+
+    & > header {
+      & > h1, & > p {
+        display: inline;
+      }
+      & > p {
+        margin-left: 4px;
+        opacity: 0.4;
+      }
+    }
+  }
+}
