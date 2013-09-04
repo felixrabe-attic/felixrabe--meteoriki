@@ -15,3 +15,8 @@ if Meteor.isServer
       author: 'Felix'
       date: '2013-09-03'
       body: '<p>Par</p><h1>Ho Too</h1><p>Parpar</p>'
+    Pages.insert
+      title: 'Third'
+      author: 'Nina'
+      date: '2013-09-04'
+      body: "<p>It's great!</p>"
