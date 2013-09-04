@@ -3,7 +3,7 @@ Template.layout.rendered = ->
     header = $ @firstNode
     header.html("<div>#{header.html()}</div>")
 
-    $(@find('h1')).click ->
+    $(@find('.site-title')).click ->
       Router.go 'home'
 
     $(@find('p')).click ->
