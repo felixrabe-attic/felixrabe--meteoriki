@@ -3,8 +3,8 @@ form = null
 Template.submit.rendered = ->
   form = $(@firstNode)
   form.css('padding', '12px')
-  form.submit (e) ->
-    e.preventDefault()
+
+  form.submit (e) -> e.preventDefault()
 
     page =
       title:  $('[name="submit-title"]').val()
