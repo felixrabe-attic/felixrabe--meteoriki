@@ -1,10 +1,11 @@
-@hoverColor: #c21919;
-@hoverColor2: #ffb3b3;
-@hoverTransition: 0.5s color;
+@import "vars.lessimport";
 
 html body {
-  background-color: #e4e4e4;
+  background-color: @backgroundColor;
   color: #383838;
+  & input {
+    color: inherit;
+  }
 }
 
 h1 a {

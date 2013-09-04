@@ -1,0 +1,5 @@
+@backgroundColor: #e4e4e4;
+
+@hoverColor: #c21919;
+@hoverColor2: #ffb3b3;
+@hoverTransition: 0.5s color;
