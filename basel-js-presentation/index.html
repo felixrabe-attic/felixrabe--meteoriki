@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Presentation</title>
+
+    <base target="_blank" />
+
+    <meta name="description" content="A presentation generated using PresCo">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+
+    <style>
+      .reveal .slides section i[class^="icon-"], .reveal .slides section i[class*=" icon-"] {
+        display: inline;
+        width: auto;
+        height: auto;
+        line-height: normal;
+        vertical-align: baseline;
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        margin-top: 0;
+      }
+
+      .reveal .slides section i[class^="icon-"], .reveal .slides section i[class*=" icon-"] {
+        font-family: 'FontAwesome';
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      p, blockquote {
+        text-align: left;
+      }
+
+      .reveal .center {
+        text-align: center;
+      }
+
+      .reveal .silent {
+        opacity: 0.3;
+      }
+
+      .reveal blockquote footer {
+        margin-top: .5em;
+        text-align: right;
+      }
+
+      .reveal .demo {
+        padding-top: 15pt;
+      }
+
+      code:not([class]) {
+        color: #eea;
+      }
+
+      .reveal .slides section a {
+        color: #5bb;
+      }
+
+      .reveal .slides section li {
+        margin-top: 0.5em;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+        </section>
+
+        <section>
+          <h2>About me</h2>
+          <ul>
+            <li class="fragment">Currently working @ <a href="http://www.exapoint.ch">Exapoint Solutions AG</a></li>
+            <li class="fragment">Interested in the Web (again) since HTML5</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Meteor</h1>
+          <section>
+            <blockquote class="fragment">
+              “Meteor is a platform built on top of Node.js for building real-time web apps. It's what sits between your app's database and its user interface and makes sure that both are kept in sync.”
+              <footer>— <a href="http://book.discovermeteor.com/chapter/introduction/">book.discovermeteor.com</a></footer>
+            </blockquote>
+          </section>
+          <section>
+            <div class="fragment">
+              <h2>=</h2>
+              <h2><a href="https://github.com/laverdet/node-fibers">Node Fibers</a></h2>
+            </div>
+            <div class="fragment">
+              <h2>+</h2>
+              <h2><a href="http://mongodb.org">MongoDB</a></h2>
+            </div>
+            <div class="fragment">
+              <h2>+</h2>
+              <h2><a href="http://handlebarsjs.com">Handlebars</a></h2>
+            </div>
+          </section>
+          <section>
+            <!-- <div class="fragment"> -->
+              <h2>+</h2>
+              <h2><a href="http://www.google.com/search?q=meteor+ddp">DDP</a></h2>
+            <!-- </div> -->
+            <div class="fragment">
+              <h2>+</h2>
+              <h2><a href="http://docs.meteor.com/#meteor_collection">MiniMongo</a></h2>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Installation</h2>
+          <ul>
+            <li class="fragment"><a href="http://docs.meteor.com/#quickstart">Quick start</a></li>
+            <li class="fragment"><code>$ meteor create your-app</code></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Pure JavaScript</h2>
+          <section>
+            <blockquote class="fragment">
+              “Write your entire app in pure JavaScript. All the same APIs are available on the client and the server — including database APIs! — so the same code can easily run in either environment.”
+              <footer>— <a href="http://www.meteor.com/">www.meteor.com</a><br/><span class="silent">(following slides too)</span></footer>
+            </blockquote>
+          </section>
+          <section>
+            <pre><code class="language-javascript" data-trim>
+        Pages = new Meteor.Collection('pages');
+            </code></pre>
+            <pre class="fragment"><code class="language-javascript" data-trim>
+        var id = 'GuqKvQ33uvRo7ij6M';
+        if (Meteor.isServer) {
+          Pages.insert({_id: id, title: 'A page', body: '<p>Some content</p>'});
+        }
+            </code></pre>
+            <pre class="fragment"><code class="language-javascript" data-trim>
+        if (Meteor.isClient) {
+          Pages.insert({_id: id, title: 'A page', body: '<p>Some content</p>'});
+        }
+            </code></pre>
+            <div class="fragment">
+              <h2 class="demo"><a href="http://localhost:3010/">Demo 3010</a></h2>
+              <p class="center silent">(id, insert)</p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Live page updates</h2>
+          <section>
+            <blockquote class="fragment">
+              “Just write your templates. They automatically update when data in the database changes. No more boilerplate redraw code to write. Supports any templating language.”
+            </blockquote>
+          </section>
+          <section>
+            <pre><code class="language-html" data-trim>
+        <template name="pages">
+          {{#each pages}} {{> page}} {{/each}}
+        </template>
+
+        <template name="page">
+          <h1>{{title}}</h1>
+          {{{body}}}
+        </template>
+            </code></pre>
+            <pre class="fragment"><code class="language-javascript" data-trim>
+        Template.pages.pages = function() { return Pages.find(); };
+            </code></pre>
+            <pre class="fragment"><code class="language-javascript" data-trim>
+        Pages.update(id, {$set: {body: '<p>Ready for a CHANGE!</p>'}});
+            </code></pre>
+            <div class="fragment">
+              <h2 class="demo"><a href="http://localhost:3010/">Demo 3010</a></h2>
+              <p class="center silent">(update)</p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Clean, powerful data synchronization</h2>
+          <section>
+            <blockquote class="fragment">
+              “Write your client code as if it were running on the server and had direct access to the database. No more loading your data from REST endpoints.”
+            </blockquote>
+          </section>
+          <section>
+            <p class="center">(Already covered before, on to the next slide.)</p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Latency compensation</h2>
+          <section>
+            <blockquote class="fragment">
+              “When a user makes a change, their screen updates immediately — no waiting for the server. If the server rejects their request or executes it differently, the client is patched up with what actually happened.”
+            </blockquote>
+          </section>
+          <section>
+            <pre><code class="language-javascript" data-trim>
+        Meteor.methods({
+          getData: function(input) {
+            if (this.isSimulation) {
+              var output = '<i>Is it really ' + (input * 2) + '?</i>';
+            } else {
+              sleep(4);
+              var output = '<b>It sure is ' + (input * 2) + '!</b>';
+            }
+            return output;
+          }
+        });
+            </code></pre>
+            <pre class="fragment"><code class="language-javascript" data-trim>
+        Meteor.call('getData', 5, function(data) {
+          Session.set('data', data);
+        });
+            </code></pre>
+            <p class="fragment center">(Well, not so DRY currently — see <a href="https://github.com/meteor/meteor/issues/1392">meteor/meteor#1392</a>.)</p>
+            <h2 class="fragment demo"><a href="http://localhost:3020/">Demo 3020</a></h2>
+          </section>
+        </section>
+
+        <section>
+          <h2>Hot Code Pushes</h2>
+          <section>
+            <blockquote class="fragment">
+              “Update your app while users are connected without disturbing them. When you push a new version, the new code is seamlessly injected into each browser frame in which the app is open.”
+            </blockquote>
+          </section>
+          <section>
+            <!-- <div class="fragment"> -->
+              <h2 class="demo"><a href="http://localhost:3020/">Demo 3020</a></h2>
+              <p class="center silent">(split 3, edit)</p>
+            <!-- </div> -->
+          </section>
+        </section>
+
+        <section>
+          <h2>Sensitive code runs in a privileged environment</h2>
+          <section>
+            <blockquote class="fragment">
+              “Write all of your code in JavaScript (if you want). The user interface runs in your browser. The sensitive functions run in a privileged server environment.”
+            </blockquote>
+          </section>
+          <section>
+            <p>Code inside the <code>server/</code> directory does not get served to the client. <span class="fragment">And code inside <code>client/</code> does not get loaded on the server.</span></p>
+          </section>
+        </section>
+
+        <section>
+          <h2>Fully self-contained application bundles</h2>
+          <section>
+            <blockquote class="fragment">
+              “One command to compile your entire application into a tarball. Unpack it anywhere there's node.js, run one command, and you're on the air. You're never locked into a particular hosting provider; you have all the code for the platform.”
+            </blockquote>
+          </section>
+          <section>
+            <!-- <div class="fragment"> -->
+              <h2 class="demo"><a href="http://localhost:3030/" style="text-decoration: line-through;">Demo 3030</a></h2>
+              <p class="center silent">(npm install fibers@1.0.1 hanged, show readme)</p>
+            <!-- </div> -->
+          </section>
+        </section>
+
+        <section>
+          <h2>Interoperability</h2>
+          <section>
+            <blockquote class="fragment">
+              “You can connect anything to Meteor, from native mobile apps to legacy databases to Arduinos. Just implement the simple DDP protocol.”
+            </blockquote>
+          </section>
+          <section>
+            <pre><code class="language-coffeescript" data-trim>
+        EJSON = require 'meteor-ejson'
+        WebSocket = require 'ws'
+
+        ws = new WebSocket 'ws://localhost:3010/websocket'
+        ws.sendJson = (o) -> ws.send EJSON.stringify o
+
+        ws.on 'open', -> ws.sendJson
+          msg: 'connect'
+          version: 'pre1'
+          support: ['pre1']
+        ws.on 'error', (err) -> console.log 'error'
+        ws.on 'close', (err) -> console.log 'close'
+        ws.on 'message', (o) -> console.log EJSON.parse o
+            </code></pre>
+            <p class="fragment center">(Excuse the CoffeeScript. Based on <a href="http://www.google.com/search?q=meteor+ddp+client">meteor ddp client</a>.)</p>
+            <div class="fragment">
+              <h2 class="demo"><a href="http://localhost:3010/">Demo 3010</a></h2>
+              <p class="center silent">(+CLI)</p>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <h2>Smart Packages</h2>
+          <section>
+            <blockquote class="fragment">
+              “Meteor's Smart Packages are actually little programs that can inject code into the client or the server, or even hook into the bundler to preprocess your source. Great care has been taken to give the core Meteor packages the minimal set of dependencies, so you can use your favorite templating, testing, or DOM manipulation frameworks.”
+            </blockquote>
+          </section>
+        </section>
+
+        <section>
+          <h2>Time for a</h2>
+          <h1>break<span class="fragment"><span style="position: absolute; font-size: 0.3em;">&lt;br/&gt;</span><br/>!</span></h1>
+          <p class="fragment center">Next: testing, deployment, coding</p>
+        </section>
+
+        <section>
+          <h2>Testing</h2>
+          <ul>
+            <li class="fragment">Official testing practice <a href="https://trello.com/c/BQ3gu0no/12-official-testing-framework">TBD</a> — in the meantime:</li>
+            <li class="fragment"><a href="https://www.eventedmind.com/posts/meteor-testing-packages-with-tinytest">Meteor Tinytest</a> — unit tests for Meteor packages</li>
+            <li class="fragment"><a href="http://phantomjs.org/">PhantomJS</a> et al. — functional tests for apps</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Deployment</h2>
+          <ul>
+            <li class="fragment"><code>meteor deploy</code></li>
+            <li class="fragment"><a href="http://stackful.io/">stackful.io</a></li>
+            <li class="fragment">Roll-your-own with <a href="http://nodejs.org">node.js</a>, <a href="http://mongodb.org">MongoDB</a>, <a href="http://www.websocket.org/">WebSockets</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Thank you</h1>
+          <h2 class="center">Let's get hacking!</h2>
+          <h1><i class="icon-rocket"></i></h1>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: false,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
